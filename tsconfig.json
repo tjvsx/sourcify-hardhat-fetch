@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    // project options
+    "outDir": "dist",
+    "allowJs": true,
+    "checkJs": true,
+    "target": "ES2017",
+    "module": "CommonJS",
+    "lib": ["ES2021", "ES2021.Promise", "ES2021.String", "ES2020.BigInt", "DOM", "DOM.Iterable"],
+    "noEmit": false,
+    "noEmitOnError": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "composite": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    // module resolution
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    // linter checks
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    // advanced
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "resolveJsonModule": true
+},
+"include": [
+    "src"
+],
+"exclude": [
+  "node_modules"
+]
+}

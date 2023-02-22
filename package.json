@@ -1,0 +1,52 @@
+{
+  "name": "sourcify-hardhat-fetch",
+  "version": "1.0.0",
+  "description": "fetch contracts from sourcify and write them to local project",
+  "files": [
+    "dist",
+    "src",
+    "bin"
+  ],
+  "main": "dist/cjs/src/index.js",
+  "module": "dist/esm/src/index.js",
+  "scripts": {
+    "build": "yarn run build:esm && yarn run build:cjs && yarn build:cli",
+    "build:esm": "tsc --module es2020 --target es2017 --outDir dist/esm",
+    "build:cjs": "tsc --outDir dist/cjs",
+    "build:cli": "tsc --moduleResolution node16 ./src/index.ts --outDir bin && chmod +x bin/*",
+    "test": "TS_NODE_PROJECT=./tsconfig.test.json mocha",
+    "lint": "yarn lint:prettier --check && yarn lint:eslint",
+    "lint:fix": "yarn lint:prettier --write && yarn lint:eslint --fix",
+    "lint:eslint": "eslint './{src,test}/**/*.{ts,tsx}'",
+    "lint:prettier": "yarn prettier './{src,test}/**/*.{ts,tsx}'"
+  },
+  "bin": {
+    "fetch-sourcify": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjvsx/ipfs-pilets.git"
+  },
+  "author": "tjvsx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjvsx/ipfs-pilets/issues"
+  },
+  "homepage": "https://github.com/tjvsx/ipfs-pilets#readme",
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/tar": "^6.1.2",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.3",
+    "minipass": "^3.3.4",
+    "path-to-regexp": "2.4.0",
+    "tar": "^6.1.11",
+    "ts-node": "^10.9.1",
+    "tslib": "2.4.0",
+    "typescript": "latest",
+    "zlib": "^1.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
