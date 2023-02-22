@@ -62,7 +62,7 @@ function getSourceFiles(address, chainId) {
                     return [2 /*return*/, response.data];
                 case 3:
                     e_1 = _a.sent();
-                    throw new Error("".concat(e_1.message, " ").concat(e_1.response.data, "... Please make sure your contracts in \"custom\" field of package.json are verified on Sourcify"));
+                    throw new Error("".concat(e_1.message, "... Failed: Please make sure the contracts are verified on Sourcify"));
                 case 4: return [2 /*return*/];
             }
         });
@@ -137,9 +137,11 @@ function fetchAndWrite(pathName, facets) {
         return __generator(this, function (_f) {
             switch (_f.label) {
                 case 0:
+                    console.log("facets", facets);
                     if (!facets) {
                         facets = fetchContractAddressesFromPackageJson();
                     }
+                    console.log("facets", facets);
                     generatedDir = path.join(process.cwd(), pathName);
                     if (!fs.existsSync(generatedDir)) {
                         fs.mkdirSync(generatedDir);

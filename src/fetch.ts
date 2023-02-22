@@ -19,7 +19,7 @@ async function getSourceFiles(address: string, chainId: number) {
     return response.data;
   } catch (e) {
     throw new Error(
-      `${e.message} ${e.response.data}... Please make sure your contracts in "custom" field of package.json are verified on Sourcify`
+      `${e.message}... Failed: Please make sure the contracts are verified on Sourcify`
     );
   }
 }
@@ -76,9 +76,11 @@ export async function fetchAndWrite(
   pathName: string,
   facets?: IVerificationInput[]
 ) {
+  console.log("facets", facets);
   if (!facets) {
     facets = fetchContractAddressesFromPackageJson();
   }
+  console.log("facets", facets);
 
   const generatedDir = path.join(process.cwd(), pathName);
 

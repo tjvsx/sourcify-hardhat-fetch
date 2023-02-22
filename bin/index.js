@@ -46,20 +46,24 @@ if (!process.env.SOURCIFY_HARDHAT_FETCH_OUTPUT_PATH) {
     usage();
     process.exit(-1);
 }
-function main(contractsJSONPath) {
+function main() {
     var _a;
     return __awaiter(this, void 0, void 0, function () {
-        var contractsJson, contracts, outputPath, e_1;
+        var contracts, contractsJSONPath, contractsJson, outputPath, e_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    contractsJson = fs.readFileSync(contractsJSONPath, "utf8") || null;
-                    contracts = ((_a = JSON.parse(contractsJson)) === null || _a === void 0 ? void 0 : _a.contracts) || null;
+                    contracts = null;
+                    contractsJSONPath = process.env.SOURCIFY_HARDHAT_FETCH_CONTRACTS_JSON_INPUT_PATH || "";
+                    if (contractsJSONPath !== "") {
+                        contractsJson = fs.readFileSync(contractsJSONPath, "utf8");
+                        contracts = (_a = JSON.parse(contractsJson)) === null || _a === void 0 ? void 0 : _a.contracts;
+                    }
                     outputPath = process.env.SOURCIFY_HARDHAT_FETCH_OUTPUT_PATH;
                     _b.label = 1;
                 case 1:
                     _b.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, (0, fetch_1.fetchAndWrite)(outputPath, contracts || null)];
+                    return [4 /*yield*/, (0, fetch_1.fetchAndWrite)(outputPath, contracts)];
                 case 2:
                     _b.sent();
                     return [3 /*break*/, 4];
@@ -72,5 +76,4 @@ function main(contractsJSONPath) {
         });
     });
 }
-var args = process.argv.slice(2);
-main(args === null || args === void 0 ? void 0 : args[0]);
+main();
