@@ -34,10 +34,12 @@
     "url": "https://github.com/tjvsx/sourcify-hardhat-fetch/issues"
   },
   "homepage": "https://github.com/tjvsx/sourcify-hardhat-fetch#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  },
   "devDependencies": {
     "@types/node": "latest",
     "@types/tar": "^6.1.2",
-    "axios": "^0.27.2",
     "dotenv": "^16.0.3",
     "minipass": "^3.3.4",
     "path-to-regexp": "2.4.0",
