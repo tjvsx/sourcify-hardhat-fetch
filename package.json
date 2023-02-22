@@ -25,14 +25,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tjvsx/ipfs-pilets.git"
+    "url": "git+https://github.com/tjvsx/sourcify-hardhat-fetch.git"
   },
   "author": "tjvsx",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tjvsx/ipfs-pilets/issues"
+    "url": "https://github.com/tjvsx/sourcify-hardhat-fetch/issues"
   },
-  "homepage": "https://github.com/tjvsx/ipfs-pilets#readme",
+  "homepage": "https://github.com/tjvsx/sourcify-hardhat-fetch#readme",
   "devDependencies": {
     "@types/node": "latest",
     "@types/tar": "^6.1.2",
